@@ -3,51 +3,50 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="522.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FrameRegistroController">
-   <children>
-      <BorderPane prefHeight="522.0" prefWidth="693.0">
-         <top>
-            <Pane prefHeight="76.0" prefWidth="694.0" style="-fx-background-color: #2D7D90;" BorderPane.alignment="CENTER" />
-         </top>
-         <bottom>
-            <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #2D7D90;" BorderPane.alignment="CENTER">
-              <items>
-                <Button fx:id="btnRegistrar" mnemonicParsing="false" onAction="#Registrar" text="Registrar" />
-                  <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#Volver" text="Volver" />
-              </items>
-            </ToolBar>
-         </bottom>
-         <center>
-            <FlowPane alignment="CENTER" orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #38A3A5;" BorderPane.alignment="CENTER">
-               <children>
-                  <Label text="Nombre" />
-                  <TextField fx:id="txtNombre" prefHeight="26.0" prefWidth="234.0" />
-                  <Label />
-                  <Label text="Apellidos" />
-                  <TextField fx:id="txtApellidos" prefHeight="26.0" prefWidth="234.0" />
-                  <Label />
-                  <Label text="Genero favorito" />
-                  <ChoiceBox fx:id="chboxFavoritos" prefWidth="150.0" />
-                  <Label />
-                  <Label text="Nickname" />
-                  <TextField fx:id="txtNickname" prefHeight="26.0" prefWidth="234.0" />
-                  <Label />
-                  <Label text="Correo" />
-                  <TextField fx:id="txtCorreo" prefHeight="26.0" prefWidth="234.0" />
-                  <Label />
-                  <Label text="Contraseña" />
-                  <TextField fx:id="txtContrasena" prefHeight="26.0" prefWidth="234.0" />
-                  <Label />
-               </children>
-            </FlowPane>
-         </center>
-      </BorderPane>
-   </children>
-</AnchorPane>
+<BorderPane prefHeight="522.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FrameRegistroController">
+   <top>
+      <Pane prefHeight="46.0" prefWidth="676.0" style="-fx-background-color: #2D7D90;" BorderPane.alignment="CENTER" />
+   </top>
+   <bottom>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #2D7D90;" BorderPane.alignment="CENTER">
+         <items>
+            <Button fx:id="btnRegistrar" mnemonicParsing="false" onAction="#Registrar" text="Registrar" />
+            <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#Volver" text="Volver" />
+         </items>
+      </ToolBar>
+   </bottom>
+   <center>
+      <FlowPane alignment="CENTER" orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #38A3A5;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Nombre" />
+            <TextField fx:id="txtNombre" prefHeight="26.0" prefWidth="234.0" />
+            <Label />
+            <Label text="Apellidos" />
+            <TextField fx:id="txtApellidos" prefHeight="26.0" prefWidth="234.0" />
+            <Label />
+            <Label text="Genero favorito" />
+            <ChoiceBox fx:id="chboxFavoritos" prefWidth="150.0" />
+            <Label />
+            <Label text="Nickname" />
+            <TextField fx:id="txtNickname" prefHeight="26.0" prefWidth="234.0" />
+            <Label />
+            <Label text="Correo" />
+            <TextField fx:id="txtCorreo" prefHeight="26.0" prefWidth="234.0" />
+            <Label />
+            <Label text="Contraseña" />
+            <TextField fx:id="txtContrasena" prefHeight="26.0" prefWidth="234.0" />
+            <Label />
+            <Label text="Confirmar Contraseña" />
+            <PasswordField fx:id="txtConfirmarContrasena" />
+            <Label />
+         </children>
+      </FlowPane>
+   </center>
+</BorderPane>

@@ -31,11 +31,10 @@ public class FrameLogginController {
     @FXML
     private TextField txtGmail;
     
-    ActionEvent evento;
 
     @FXML
     void IrARegistro(MouseEvent event) {
-    	Metodos.cambiarEscena(evento, "/view/FrameRegistro.fxml", "Registro");
+    	Metodos.cambiarEscena(event, "/view/FrameRegistro.fxml", "Registro");
     }
 
     @FXML

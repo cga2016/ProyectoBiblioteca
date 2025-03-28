@@ -24,6 +24,7 @@ public class Main extends Application {
 			Scene scene = new Scene(root);
 			stage.initModality(Modality.APPLICATION_MODAL);
 			stage.setScene(scene);
+			stage.setTitle("Inicio de Sesión");
 			stage.showAndWait();
 			
 			

@@ -89,6 +89,12 @@ public class Usuario {
 	public static void setLibrosRegistrados(ArrayList<Libro> librosRegistrados) {
 		Usuario.librosRegistrados = librosRegistrados;
 	}
+
+	@Override
+	public String toString() {
+		return "Usuario [nombre=" + nombre + ", apellidos=" + apellidos + ", generoFavorito=" + generoFavorito
+				+ ", contrasena=" + contrasena + ", correo=" + correo + ", nickname=" + nickname + ", id=" + id + "]";
+	}
 	
 
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
@@ -14,19 +14,14 @@
    <top>
       <Pane prefHeight="46.0" prefWidth="676.0" style="-fx-background-color: #2D7D90;" BorderPane.alignment="CENTER" />
    </top>
-   <bottom>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #2D7D90;" BorderPane.alignment="CENTER">
-         <items>
-            <Button fx:id="btnRegistrar" mnemonicParsing="false" onAction="#Registrar" text="Registrar" />
-            <Button fx:id="btnVolver" mnemonicParsing="false" onAction="#Volver" text="Volver" />
-         </items>
-      </ToolBar>
-   </bottom>
    <center>
       <FlowPane alignment="CENTER" orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #38A3A5;" BorderPane.alignment="CENTER">
          <children>
             <Label text="Nombre" />
-            <TextField fx:id="txtNombre" prefHeight="26.0" prefWidth="234.0" />
+            <TextField fx:id="txtNombre" prefHeight="26.0" prefWidth="234.0">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
             <Label />
             <Label text="Apellidos" />
             <TextField fx:id="txtApellidos" prefHeight="26.0" prefWidth="234.0" />
@@ -41,7 +36,7 @@
             <TextField fx:id="txtCorreo" prefHeight="26.0" prefWidth="234.0" />
             <Label />
             <Label text="Contraseña" />
-            <TextField fx:id="txtContrasena" prefHeight="26.0" prefWidth="234.0" />
+            <PasswordField fx:id="txtContrasena" />
             <Label />
             <Label text="Confirmar Contraseña" />
             <PasswordField fx:id="txtConfirmarContrasena" />
@@ -49,4 +44,17 @@
          </children>
       </FlowPane>
    </center>
+   <bottom>
+      <FlowPane alignment="CENTER" prefHeight="39.0" prefWidth="694.0" style="-fx-background-color: #2D7D90;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnRegistrar" alignment="CENTER" mnemonicParsing="false" onAction="#Registrar" style="-fx-background-color: #48B89F;" text="Registrar">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label text="                  " />
+            <Button fx:id="btnVolver" alignment="CENTER" mnemonicParsing="false" onAction="#Volver" style="-fx-background-color: #48B89F;" text="Volver" />
+         </children>
+      </FlowPane>
+   </bottom>
 </BorderPane>

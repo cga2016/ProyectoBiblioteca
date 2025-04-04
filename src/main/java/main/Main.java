@@ -43,19 +43,13 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		try {
-			System.out.print(ApiPrueba.searchBooksByName("Terry"));
+			/*System.out.print(ApiPrueba.searchBooksByName("Terry"));*/
 			ListaUsuarios.setUsuariosRegistrados(DaoUsuarios.loadUsers());
-			
-			/*ArrayList<Usuario> ej = ListaUsuarios.getUsuariosRegistrados();
-			for (Usuario usuario : ej) {
-			    System.out.println(usuario.toString());  
-			}*/
 			Usuario usuario = new Usuario("ej", "ej", "terror", "1234", "ej", "ej");
 			usuario.setId(0);
 			ListaUsuarios.addUsuario(usuario);
 			
 		} catch (Exception e) {
-		
 			e.printStackTrace();
 		};
 		launch(args);

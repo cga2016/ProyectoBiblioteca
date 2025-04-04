@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import models.ListaUsuarios;
 import models.Metodos;
@@ -36,6 +37,17 @@ public class FrameLogginController {
     
 
     @FXML
+    void btnIniciarEntrar(MouseEvent event) {
+    	Metodos.cambiarColorBotonEntrada(btnLoggin);
+    }
+
+    @FXML
+    void btnIniciarSalir(MouseEvent event) {
+    	Metodos.cambiarColorBotonSalir(btnLoggin);
+    }
+    
+
+    @FXML
     void IrARegistro(MouseEvent event) {
     	Metodos.cambiarEscena(event, "/view/FrameRegistro.fxml", "Registro");
     }
@@ -45,9 +57,9 @@ public class FrameLogginController {
     	if (ListaUsuarios.checkUsuarioEmail(txtGmail.getText())) {
     		Usuario user1 = ListaUsuarios.searchUsser(txtGmail.getText());
     		if(user1.getContrasena().equals(txtContrasena.getText())) {
+    			UsuarioIniciado.setUsuario(ListaUsuarios.searchUsser(txtGmail.getText()));
 	    		Metodos.mostrarMensajeConfirmacion("Usuario encontrado");
 	    		Metodos.cambiarEscena(event, "/view/FrameHome.fxml", "Home");
-	    		UsuarioIniciado.setUsuario(ListaUsuarios.searchUsser(txtGmail.getText()));
     		} else {
     			Metodos.mostrarMensajeConfirmacion("Contrseña incorrecta");
     		}

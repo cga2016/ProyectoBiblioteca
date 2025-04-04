@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -65,6 +66,13 @@ public class Metodos {
 		 } else {
 			 return false;
 		 }
+	 }
+	 
+	 public static void cambiarColorBotonEntrada(Button boton) {
+		 boton.setStyle("-fx-background-color: #57CC99;");
+	 }
+	 public static void cambiarColorBotonSalir(Button boton) {
+		 boton.setStyle("-fx-background-color: #2D7D90;");
 	 }
 		
 		

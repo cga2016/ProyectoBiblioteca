@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #2D7D90;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FrameLogginController">
@@ -17,14 +18,15 @@
       <AnchorPane prefHeight="320.0" prefWidth="97.0" BorderPane.alignment="CENTER" />
    </left>
    <top>
-      <AnchorPane prefHeight="98.0" prefWidth="696.0" BorderPane.alignment="CENTER">
+      <FlowPane alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="85.0" fitWidth="165.0" layoutX="338.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="85.0" fitWidth="381.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/logoBiblio.png" />
                </image>
             </ImageView>
-         </children></AnchorPane>
+         </children>
+      </FlowPane>
    </top>
    <right>
       <AnchorPane prefHeight="330.0" prefWidth="103.0" BorderPane.alignment="CENTER" />
@@ -51,20 +53,25 @@
                   <Font name="Noto Mono" size="12.0" />
                </font></Label>
             <PasswordField fx:id="txtContrasena" />
-            <Label prefHeight="18.0" prefWidth="34.0" />
-            <ToolBar prefHeight="40.0" prefWidth="306.0" style="-fx-background-color: #38A3A5;">
-              <items>
-                <Button fx:id="btnLoggin" mnemonicParsing="false" onAction="#iniciarSesion" onMouseDragExited="#btnIniciarSalir" onMouseEntered="#btnIniciarEntrar" onMouseExited="#btnIniciarSalir" prefHeight="23.0" prefWidth="122.0" style="-fx-background-color: #2D7D90;" text="Iniciar sesión">
+            <Pane prefHeight="50.0" prefWidth="330.0">
+               <children>
+                <Button fx:id="btnLoggin" layoutY="14.0" mnemonicParsing="false" onAction="#iniciarSesion" onMouseDragExited="#btnIniciarSalir" onMouseEntered="#btnIniciarEntrar" onMouseExited="#btnIniciarSalir" prefHeight="23.0" prefWidth="122.0" style="-fx-background-color: #2D7D90;" text="Iniciar sesión">
                      <font>
                         <Font name="Noto Mono" size="12.0" />
-                     </font></Button>
-                  <Label prefHeight="18.0" prefWidth="74.0" />
-                  <Label fx:id="btnRegistro" onMouseClicked="#IrARegistro" prefHeight="18.0" prefWidth="88.0" text="Crear Cuenta" textFill="#3300ff">
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Label fx:id="btnRegistro" layoutX="228.0" layoutY="16.0" onMouseClicked="#IrARegistro" prefHeight="18.0" prefWidth="88.0" text="Crear Cuenta" textFill="#3300ff">
                      <font>
                         <Font name="Liberation Mono" size="12.0" />
-                     </font></Label>
-              </items>
-            </ToolBar>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Label>
+               </children>
+            </Pane>
+            <Label prefHeight="18.0" prefWidth="34.0" />
             <Label />
          </children>
       </FlowPane>

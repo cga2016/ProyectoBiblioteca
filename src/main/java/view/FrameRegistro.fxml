@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 
-<BorderPane prefHeight="522.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FrameRegistroController">
+<BorderPane prefHeight="581.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FrameRegistroController">
    <top>
       <Pane prefHeight="46.0" prefWidth="676.0" style="-fx-background-color: #2D7D90;" BorderPane.alignment="CENTER" />
    </top>
@@ -27,7 +27,10 @@
             <TextField fx:id="txtApellidos" prefHeight="26.0" prefWidth="234.0" />
             <Label />
             <Label text="Genero favorito" />
-            <ChoiceBox fx:id="chboxFavoritos" prefWidth="150.0" />
+            <ChoiceBox fx:id="chboxFavoritos" prefHeight="26.0" prefWidth="234.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ChoiceBox>
             <Label />
             <Label text="Nickname" />
             <TextField fx:id="txtNickname" prefHeight="26.0" prefWidth="234.0" />
@@ -40,6 +43,21 @@
             <Label />
             <Label text="Confirmar Contraseña" />
             <PasswordField fx:id="txtConfirmarContrasena" />
+            <FlowPane alignment="CENTER" prefHeight="38.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnRegistrar" alignment="CENTER" mnemonicParsing="false" onAction="#Registrar" onMouseEntered="#btnRegistrarEntrar" onMouseExited="#btnRegistrarSalir" style="-fx-background-color: #2D7D90;" text="Registrar">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label prefHeight="18.0" prefWidth="114.0" />
+                  <Button fx:id="btnVolver" alignment="CENTER" mnemonicParsing="false" onAction="#Volver" onMouseEntered="#btnVolverEntrar" onMouseExited="#btnVolverSalir" style="-fx-background-color: #2D7D90;" text="Volver">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </FlowPane>
             <Label />
          </children>
       </FlowPane>
@@ -47,13 +65,7 @@
    <bottom>
       <FlowPane alignment="CENTER" prefHeight="39.0" prefWidth="694.0" style="-fx-background-color: #2D7D90;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnRegistrar" alignment="CENTER" mnemonicParsing="false" onAction="#Registrar" style="-fx-background-color: #48B89F;" text="Registrar">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
             <Label text="                  " />
-            <Button fx:id="btnVolver" alignment="CENTER" mnemonicParsing="false" onAction="#Volver" style="-fx-background-color: #48B89F;" text="Volver" />
          </children>
       </FlowPane>
    </bottom>

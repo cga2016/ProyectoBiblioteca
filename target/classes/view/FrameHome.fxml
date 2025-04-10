@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -21,8 +22,14 @@
    <bottom>
       <Pane prefHeight="40.0" prefWidth="1006.0" style="-fx-background-color: #22577A;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="431.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Button" />
-            <Button layoutX="569.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Button" />
+            <Button fx:id="btnAtras" layoutX="431.0" layoutY="8.0" mnemonicParsing="false" onMouseEntered="#btnAtrasEntrar" onMouseExited="#btnAtrasSalir" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #2D7D90;" text="Atras">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="btnAdelante" layoutX="569.0" layoutY="8.0" mnemonicParsing="false" onMouseEntered="#btnAdelanteEntrar" onMouseExited="#btnAdelanteSalir" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #2D7D90;" text="Adelante">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children></Pane>
    </bottom>
    <center>
@@ -55,13 +62,19 @@
             <ImageView fx:id="imageView10" fitHeight="123.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <ImageView fx:id="imageView11" fitHeight="123.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="5" />
             <ImageView fx:id="imageView12" fitHeight="123.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <Pane onMouseClicked="#ClickFPS" prefHeight="63.0" prefWidth="211.0" style="-fx-background-color: #2D7D90;">
+            <Pane onMouseClicked="#ClickFPS" prefHeight="43.0" prefWidth="202.0" style="-fx-background-color: #2D7D90;">
                <children>
-                  <ComboBox layoutX="14.0" layoutY="8.0" prefHeight="25.0" prefWidth="190.0" />
+                  <ComboBox fx:id="chboxFiltro" layoutX="14.0" layoutY="8.0" prefHeight="25.0" prefWidth="190.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></ComboBox>
                </children></Pane>
             <Pane onMouseClicked="#ClickTerror" prefHeight="57.0" prefWidth="469.0" style="-fx-background-color: #2D7D90;" GridPane.columnIndex="1">
                <children>
-                  <ComboBox layoutX="10.0" layoutY="8.0" prefHeight="25.0" prefWidth="190.0" />
+                  <ComboBox fx:id="chBoxTipoDeBusqueda" layoutX="10.0" layoutY="8.0" prefHeight="25.0" prefWidth="190.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></ComboBox>
                </children></Pane>
             <Pane onMouseClicked="#clickPuzles" prefHeight="57.0" prefWidth="469.0" style="-fx-background-color: #2D7D90;" GridPane.columnIndex="2">
                <children>
@@ -74,7 +87,14 @@
             </Pane>
             <Pane prefHeight="42.0" prefWidth="232.0" style="-fx-background-color: #2D7D90;" GridPane.columnIndex="3">
                <children>
-                  <Button layoutX="14.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Button" />
+                  <ImageView fx:id="btnBuscador" fitHeight="39.0" fitWidth="39.0" focusTraversable="true" layoutX="6.0" layoutY="2.0" onMouseClicked="#buscarClick" opacity="0.46" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/lupa.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
                </children></Pane>
             <Label fx:id="tituloJuego5" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.rowIndex="4">
                <font>
@@ -151,21 +171,22 @@
                   <Insets />
                </GridPane.margin>
                <children>
-                  <Label fx:id="labelUsuario" alignment="BOTTOM_CENTER" layoutX="2.0" layoutY="53.0" prefHeight="18.0" prefWidth="73.0" style="-fx-font-family: Cambria;" text="usuario">
+                  <Label fx:id="labelUsuario" alignment="BOTTOM_CENTER" layoutX="1.0" layoutY="9.0" prefHeight="42.0" prefWidth="73.0" style="-fx-font-family: Cambria;" text="usuario" textAlignment="CENTER">
                      <font>
-                        <Font size="13.0" />
-                     </font></Label>
-                  <ImageView fitHeight="53.0" fitWidth="52.0" layoutX="12.0" layoutY="5.0">
-                     <image>
-                        <Image url="@../resourcess/usuario.png" />
-                     </image>
-                  </ImageView>
+                        <Font name="Noto Mono" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Label>
                </children>
             </Pane>
             <ImageView fitHeight="76.0" fitWidth="116.0">
                <image>
                   <Image url="@../images/logoBiblio.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
          </children>
       </GridPane>

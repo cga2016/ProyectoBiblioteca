@@ -19,16 +19,15 @@ import models.Usuario;
 
 
 public class FrameRegistroController {
-
-
     @FXML
     private Button btnRegistrar;
 
     @FXML
     private Button btnVolver;
+
     @FXML
-    private ChoiceBox<String> chboxFavoritos; 
-    
+    private ChoiceBox<String> chboxFavoritos;
+
     @FXML
     private TextField txtApellidos;
 
@@ -46,11 +45,36 @@ public class FrameRegistroController {
 
     @FXML
     private TextField txtNombre;
+
+    
+    
+
     @FXML
+    void btnRegistrarEntrar(MouseEvent event) {
+    	Metodos.cambiarColorBotonEntrada(btnRegistrar);
+    }
+
+    @FXML
+    void btnRegistrarSalir(MouseEvent event) {
+    	Metodos.cambiarColorBotonSalir(btnRegistrar);
+    }
+
+    @FXML
+    void btnVolverEntrar(MouseEvent event) {
+    	Metodos.cambiarColorBotonEntrada(btnVolver);
+    }
+
+    @FXML
+    void btnVolverSalir(MouseEvent event) {
+    	Metodos.cambiarColorBotonSalir(btnVolver);
+    }
+    @FXML
+    /**
+     * metodo inicial que rellena los combo box
+     */
     public void initialize() {
-        // Llenar el ChoiceBox con las opciones
         chboxFavoritos.getItems().addAll("ficcion", "ciencia+ficcion", "terror", "romance", "cocina");
-        chboxFavoritos.setValue("ficcion"); // Establecer un valor por defecto
+        chboxFavoritos.setValue("ficcion"); 
     }
     
     private Usuario user;

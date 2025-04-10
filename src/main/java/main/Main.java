@@ -43,7 +43,7 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		try {
-			/*System.out.print(ApiPrueba.searchBooksByName("Terry"));*/
+			System.out.print(ApiPrueba.searchBooks("intitle", "mundo"));
 			ListaUsuarios.setUsuariosRegistrados(DaoUsuarios.loadUsers());
 			Usuario usuario = new Usuario("ej", "ej", "terror", "1234", "ej", "ej");
 			usuario.setId(0);

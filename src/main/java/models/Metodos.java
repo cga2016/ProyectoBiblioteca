@@ -27,7 +27,6 @@ public class Metodos {
 	        } else if (event instanceof MouseEvent) {
 	            stage = (Stage) ((Node) ((MouseEvent) event).getSource()).getScene().getWindow();
 	        } else {
-	            System.err.println("Error: Tipo de evento no soportado");
 	            return;
 	        }
 

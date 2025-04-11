@@ -54,7 +54,7 @@ public class ApiPrueba {
         StringBuilder content = new StringBuilder();
         while ((inputLine = in.readLine()) != null) {
             content.append(inputLine);
-            System.out.println(urlString);
+        //  System.out.println(urlString);
             System.out.println(inputLine);
             System.out.println();
         }

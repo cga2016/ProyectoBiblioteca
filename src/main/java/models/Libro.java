@@ -75,6 +75,13 @@ public class Libro {
 	public void setImageGrande(String imageGrande) {
 		this.imageGrande = imageGrande;
 	}
+	@Override
+	public String toString() {
+		return "Libro [id=" + id + ", nombre=" + nombre + ", linkPropio=" + linkPropio + ", autor=" + autor
+				+ ", fechaPublicacion=" + fechaPublicacion + ", iSBN=" + iSBN + ", imagenPeque=" + imagenPeque
+				+ ", imageGrande=" + imageGrande + ", prestado=" + prestado + ", idUsuarioPrestamo=" + idUsuarioPrestamo
+				+ ", fechaPrestamo=" + fechaPrestamo + ", estadoPrestamo=" + estadoPrestamo + "]";
+	}
 	
 	
 }

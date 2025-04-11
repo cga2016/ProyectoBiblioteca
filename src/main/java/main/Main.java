@@ -2,6 +2,7 @@ package main;
 
 import java.util.ArrayList;
 
+import Api.ApiMetodos;
 import Api.ApiPrueba;
 import controller.FrameLogginController;
 import dao.DaoUsuarios;
@@ -12,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import models.Libro;
 import models.ListaUsuarios;
 import models.Usuario;
 
@@ -43,11 +45,11 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		try {
-			System.out.print(ApiPrueba.searchBooks("intitle", "mundo"));
 			ListaUsuarios.setUsuariosRegistrados(DaoUsuarios.loadUsers());
 			Usuario usuario = new Usuario("ej", "ej", "terror", "1234", "ej", "ej");
 			usuario.setId(0);
 			ListaUsuarios.addUsuario(usuario);
+			ArrayList<Libro> lista = ApiMetodos.searchLibros("Terry", STYLESHEET_MODENA, "intitles");
 			
 		} catch (Exception e) {
 			e.printStackTrace();

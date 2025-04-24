@@ -14,6 +14,9 @@ import com.google.gson.JsonParser;
 
 import models.Libro;
 
+/**
+ * cambiar lo de url que esta deprecated
+ */
 public class ApiMetodos {
 
     private static final String API_URL = "https://www.googleapis.com/books/v1/volumes?q=";

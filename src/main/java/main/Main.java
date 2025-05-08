@@ -1,4 +1,6 @@
  package main;
+ 
+
 
 import java.util.ArrayList;
 
@@ -39,8 +41,7 @@ public class Main extends Application {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
-		
+
 	}
 	
 	public static void main(String[] args) {

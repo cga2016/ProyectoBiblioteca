@@ -1,5 +1,6 @@
 package controller;
 
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 import Api.ApiMetodos;
@@ -25,7 +26,8 @@ public class FrameHomeController {
     private ComboBox<String> chBoxTipoDeBusqueda;
 
     @FXML
-    private ComboBox<String> chboxFiltro;
+    private ComboBox<String>  chboxFiltro;
+    
     
     @FXML
     private ImageView btnLogOff;
@@ -144,7 +146,7 @@ public class FrameHomeController {
 
     }
     
-    private void cargarLibrosPorTipo(String tipo) {
+    private void cargarLibrosPorTipo(String tipo) throws URISyntaxException {
         switch (tipo.toLowerCase()) {
             case "favoritos":
                 librosTotales = ApiMetodos.searchLibros(
@@ -178,7 +180,7 @@ public class FrameHomeController {
     	Metodos.cambiarEscena(event, "/view/FrameLoggin.fxml", "Registro");
     }	
     @FXML
-    public void initialize() {
+    public void initialize() throws URISyntaxException {
         chBoxTipoDeBusqueda.getItems().addAll("favoritos", "nuevo", "más populares");
         chBoxTipoDeBusqueda.getSelectionModel().selectFirst();
 
@@ -191,7 +193,12 @@ public class FrameHomeController {
 
         chBoxTipoDeBusqueda.setOnAction(event -> {
             String tipoSeleccionado = chBoxTipoDeBusqueda.getSelectionModel().getSelectedItem();
-            cargarLibrosPorTipo(tipoSeleccionado);
+            try {
+				cargarLibrosPorTipo(tipoSeleccionado);
+			} catch (URISyntaxException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         });
     }
     
@@ -275,7 +282,7 @@ public class FrameHomeController {
     }
     
     @FXML
-    void buscarClick(MouseEvent event) {
+    void buscarClick(MouseEvent event) throws URISyntaxException {
     	buscar();
     }
 
@@ -295,17 +302,17 @@ public class FrameHomeController {
 
     }
     
-    private ArrayList<Libro> searchNuevosLanzamientos() {
+    private ArrayList<Libro> searchNuevosLanzamientos() throws URISyntaxException {
 
         return ApiMetodos.searchLibros("2024", "", "inpublisher");
     }
 
-    private ArrayList<Libro> searchLibrosPopulares() {
+    private ArrayList<Libro> searchLibrosPopulares() throws URISyntaxException {
    
         return ApiMetodos.searchLibros("bestseller", "", "subject");
     }
     
-    private void buscar() {
+    private void buscar() throws URISyntaxException {
         String textoBusqueda = searchField.getText().trim();
 
         if (!textoBusqueda.isEmpty()) {

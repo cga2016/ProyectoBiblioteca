@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 
 
@@ -45,7 +46,8 @@ public class ApiPrueba {
      */
     public static String searchBooks(String condicion, String query) throws Exception {
         String urlString = API_URL +condicion + ":" +  query + "+&key=" + API_KEY;
-        URL url = new URL(urlString);
+        URI uri = new URI(urlString);
+        URL url = uri.toURL();
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         

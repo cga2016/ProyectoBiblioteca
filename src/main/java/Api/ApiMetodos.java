@@ -4,7 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import com.google.gson.JsonArray;
@@ -28,13 +32,15 @@ public class ApiMetodos {
      * @param filtro1
      * @param filtro2
      * @return
+     * @throws URISyntaxException 
      */
-    public static ArrayList<Libro> searchLibros(String busqueda, String filtro1, String filtro2) {
+    public static ArrayList<Libro> searchLibros(String busqueda, String filtro1, String filtro2) throws URISyntaxException {
         ArrayList<Libro> libros = new ArrayList<>();
 
         try {
             String urlString = API_URL + filtro2 + ":" + busqueda + "&maxResults=36&key=" + API_KEY;
-            URL url = new URL(urlString);
+            URI uri = new URI(urlString);
+            URL url = uri.toURL();
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             

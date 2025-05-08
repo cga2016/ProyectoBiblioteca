@@ -118,8 +118,10 @@ public class FrameRegistroController {
             }
             
 
-            if (!txtCorreo.getText().matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$")) {
-                Metodos.mostrarMensajeError("El correo electrónico no es válido.");
+            String correo = txtCorreo.getText().trim();
+
+            if (correo.length() > 50 || !correo.toLowerCase().endsWith("@gmail.com")) {
+                Metodos.mostrarMensajeError("El correo debe terminar en '@gmail.com' y tener como máximo 50 caracteres.");
                 return;
             }
             	user = new Usuario(txtNombre.getText(), txtApellidos.getText(), genero,

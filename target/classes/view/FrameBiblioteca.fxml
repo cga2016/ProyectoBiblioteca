@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -21,7 +22,41 @@
    <children>
       <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="724.0" prefWidth="1040.0" style="-fx-background-color: #C7F9CC;">
          <left>
-            <Pane prefHeight="584.0" prefWidth="117.0" style="-fx-background-color: #22577A;" BorderPane.alignment="CENTER" />
+            <Pane prefHeight="584.0" prefWidth="117.0" style="-fx-background-color: #22577A;" BorderPane.alignment="CENTER">
+               <children>
+                  <FlowPane layoutX="3.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="604.0" prefWidth="114.0">
+                     <children>
+                        <Label />
+                        <Label text="     " />
+                        <Label text="     " />
+                        <Label text="     " />
+                        <Label text="Label" textFill="WHITE">
+                           <font>
+                              <Font name="Noto Mono" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="     " />
+                        <Label text="Label" textFill="WHITE">
+                           <font>
+                              <Font name="Noto Mono" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="     " />
+                        <Label text="Label" textFill="WHITE">
+                           <font>
+                              <Font name="Noto Mono" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="     " />
+                        <Label text="Label" textFill="WHITE">
+                           <font>
+                              <Font name="Noto Mono" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+               </children>
+            </Pane>
          </left>
          <bottom>
             <Pane prefHeight="40.0" prefWidth="1006.0" style="-fx-background-color: #22577A;" BorderPane.alignment="CENTER">
@@ -83,15 +118,7 @@
                         </ComboBox>
                      </children>
                   </Pane>
-                  <Pane prefHeight="57.0" prefWidth="469.0" style="-fx-background-color: #2D7D90;" GridPane.columnIndex="1">
-                     <children>
-                        <ComboBox fx:id="chBoxTipoDeBusqueda" layoutX="10.0" layoutY="8.0" prefHeight="25.0" prefWidth="190.0">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </ComboBox>
-                     </children>
-                  </Pane>
+                  <Pane prefHeight="57.0" prefWidth="469.0" style="-fx-background-color: #2D7D90;" GridPane.columnIndex="1" />
                   <Pane onMouseClicked="#clickPuzles" prefHeight="57.0" prefWidth="469.0" style="-fx-background-color: #2D7D90;" GridPane.columnIndex="2">
                      <children>
                         <TextField fx:id="searchField" alignment="TOP_LEFT" layoutY="4.0" onKeyPressed="#buscar" prefHeight="34.0" prefWidth="227.0" promptText="Buscar" style="-fx-border-radius: 200px; -fx-border-color: black; -fx-background-color: #2D7D90;">
@@ -115,62 +142,62 @@
                   </Pane>
                   <Label fx:id="tituloJuego5" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.rowIndex="4">
                      <font>
-                        <Font name="Cambria" size="14.0" />
+                        <Font name="Noto Mono" size="12.0" />
                      </font>
                   </Label>
                   <Label fx:id="tituloJuego6" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <font>
-                        <Font name="Cambria" size="14.0" />
+                        <Font name="Noto Mono" size="12.0" />
                      </font>
                   </Label>
                   <Label fx:id="tituloJuego7" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4">
                      <font>
-                        <Font name="Cambria" size="14.0" />
+                        <Font name="Noto Mono" size="12.0" />
                      </font>
                   </Label>
                   <Label fx:id="tituloJuego8" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="4">
                      <font>
-                        <Font name="Cambria" size="14.0" />
+                        <Font name="Noto Mono" size="12.0" />
                      </font>
                   </Label>
                   <Label fx:id="tituloJuego1" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.rowIndex="2">
                      <font>
-                        <Font name="Cambria" size="14.0" />
+                        <Font name="Noto Mono" size="12.0" />
                      </font>
                   </Label>
                   <Label fx:id="tituloJuego2" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
-                        <Font name="Cambria" size="14.0" />
+                        <Font name="Noto Mono" size="12.0" />
                      </font>
                   </Label>
                   <Label fx:id="tituloJuego3" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
-                        <Font name="Cambria" size="14.0" />
+                        <Font name="Noto Mono" size="12.0" />
                      </font>
                   </Label>
                   <Label fx:id="tituloJuego4" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <font>
-                        <Font name="Cambria" size="14.0" />
+                        <Font name="Noto Mono" size="12.0" />
                      </font>
                   </Label>
                   <Label fx:id="tituloJuego9" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.rowIndex="6">
                      <font>
-                        <Font name="Cambria" size="14.0" />
+                        <Font name="Noto Mono" size="12.0" />
                      </font>
                   </Label>
                   <Label fx:id="tituloJuego10" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <font>
-                        <Font name="Cambria" size="14.0" />
+                        <Font name="Noto Mono" size="12.0" />
                      </font>
                   </Label>
                   <Label fx:id="tituloJuego11" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="6">
                      <font>
-                        <Font name="Cambria" size="14.0" />
+                        <Font name="Noto Mono" size="12.0" />
                      </font>
                   </Label>
                   <Label fx:id="tituloJuego12" alignment="BASELINE_LEFT" contentDisplay="BOTTOM" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="6">
                      <font>
-                        <Font name="Cambria" size="14.0" />
+                        <Font name="Noto Mono" size="12.0" />
                      </font>
                   </Label>
                </children>
@@ -222,7 +249,7 @@
                         </Pane>
                      </children>
                   </Pane>
-                  <ImageView fitHeight="76.0" fitWidth="116.0">
+                  <ImageView fx:id="btnHome" fitHeight="76.0" fitWidth="116.0" onMouseClicked="#volverHome">
                      <image>
                         <Image url="@../images/logoBiblio.png" />
                      </image>
@@ -230,11 +257,6 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <Label text="Recomendaciones" textFill="WHITE" GridPane.columnIndex="2">
-                     <font>
-                        <Font name="Noto Mono" size="20.0" />
-                     </font>
-                  </Label>
                   <Label text="Buscar por:" textFill="WHITE" GridPane.columnIndex="1">
                      <font>
                         <Font name="Noto Mono" size="20.0" />

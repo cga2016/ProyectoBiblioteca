@@ -21,23 +21,27 @@ import models.UsuarioIniciado;
 
 public class FrameHomeController {
 	
+    @FXML
+    private Button btnAdelante;
+
+    @FXML
+    private Button btnAtras;
+
+    @FXML
+    private Label btnBiblioteca;
+
+    @FXML
+    private ImageView btnBuscador;
+
+    @FXML
+    private ImageView btnLogOff;
+
 	
     @FXML
     private ComboBox<String> chBoxTipoDeBusqueda;
 
     @FXML
     private ComboBox<String>  chboxFiltro;
-    
-    
-    @FXML
-    private ImageView btnLogOff;
-
-	
-    @FXML
-    private Button btnAdelante;
-
-    @FXML
-    private Button btnAtras;
 
     @FXML
     private ImageView imageView1;
@@ -116,10 +120,10 @@ public class FrameHomeController {
 
     @FXML
     private Label tituloJuego9;
-    
+
     @FXML
     private Label txtPaginacion;
-
+    
     private ArrayList<Libro> librosTotales = new ArrayList<>();
     private int paginaActual = 1;
     private final int librosPorPagina = 12;
@@ -143,7 +147,7 @@ public class FrameHomeController {
     
     @FXML
     void cambio1(InputMethodEvent event) {
-
+    	
     }
     
     private void cargarLibrosPorTipo(String tipo) throws URISyntaxException {
@@ -289,12 +293,27 @@ public class FrameHomeController {
 
     @FXML
     void clickDetails(MouseEvent event) {
+        Object source = event.getSource();
 
-    }
+        ImageView[] imageViews = {
+            imageView1, imageView2, imageView3, imageView4,
+            imageView5, imageView6, imageView7, imageView8,
+            imageView9, imageView10, imageView11, imageView12
+        };
 
-    @FXML
-    void clickPuzles(MouseEvent event) {
+        int index = -1;
+        for (int i = 0; i < imageViews.length; i++) {
+            if (source == imageViews[i]) {
+                index = i;
+                break;
+            }
+        }
 
+        if (index != -1 && index < librosTotales.size()) {
+            Libro libroSeleccionado = librosTotales.get((paginaActual - 1) * librosPorPagina + index);
+            Metodos.setLibroSeleccionado(libroSeleccionado);
+            Metodos.cambiarEscena(event, "/view/FrameLibroData.fxml", "Registro");
+        }
     }
 
     @FXML
@@ -344,6 +363,11 @@ public class FrameHomeController {
         	Metodos.mostrarMensajeError("Error: se dejo el campo de busqueda vacio");
         }
     	
+    }
+    
+    @FXML
+    void irABiblioteca(MouseEvent event) {
+    	Metodos.cambiarEscena(event, "/view/FrameBiblioteca.fxml", "Registro");
     }
     
     

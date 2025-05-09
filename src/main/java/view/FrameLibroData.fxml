@@ -5,6 +5,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -20,7 +23,17 @@
       <Pane prefHeight="584.0" prefWidth="117.0" style="-fx-background-color: #22577A;" BorderPane.alignment="CENTER" />
    </left>
    <bottom>
-      <Pane prefHeight="40.0" prefWidth="1006.0" style="-fx-background-color: #22577A;" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="40.0" prefWidth="1006.0" style="-fx-background-color: #22577A;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="btnRegresar" onMouseClicked="#regresar" prefHeight="30.0" prefWidth="100.0" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="Noto Mono" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+         </children></Pane>
    </bottom>
    <center>
       <GridPane hgap="5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="574.0" prefWidth="881.0" style="-fx-background-color: #C7F9CC;" vgap="5.0" BorderPane.alignment="TOP_LEFT">
@@ -54,7 +67,7 @@
                      <font>
                         <Font name="Noto Mono" size="12.0" />
                      </font></Label>
-                  <Label fx:id="txtDescriptcion" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="255.0" prefWidth="446.0" text="Descriptción:">
+                  <Label fx:id="txtDescriptcion" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="276.0" prefWidth="446.0" text="Descriptción:">
                      <font>
                         <Font name="Noto Mono" size="12.0" />
                      </font></Label>
@@ -66,7 +79,7 @@
                      <font>
                         <Font name="Noto Mono" size="12.0" />
                      </font></Label>
-                  <Label fx:id="txtFechaDePublicación" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="111.0" prefWidth="198.0" text="Fecha de publcación:">
+                  <Label fx:id="txtFechaDePublicación" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="45.0" prefWidth="198.0" text="Fecha de publcación:">
                      <font>
                         <Font name="Noto Mono" size="12.0" />
                      </font></Label>
@@ -80,64 +93,50 @@
                <children>
                   <FlowPane orientation="VERTICAL" prefHeight="152.0" prefWidth="445.0">
                      <children>
-                        <Label fx:id="txtComentarios" alignment="TOP_LEFT" prefHeight="155.0" prefWidth="442.0" text="Sample text">
-                           <font>
-                              <Font name="Noto Mono" size="12.0" />
-                           </font>
-                        </Label>
+                        <ScrollPane fx:id="scrollPane" prefHeight="150.0" prefWidth="448.0">
+                           <content>
+                              <TextArea fx:id="txtComentario" prefHeight="148.0" prefWidth="430.0" />
+                           </content>
+                        </ScrollPane>
                      </children></FlowPane>
                </children>
             </FlowPane>
             <FlowPane orientation="VERTICAL" prefHeight="122.0" prefWidth="206.0" GridPane.rowIndex="2">
                <children>
-                  <CheckBox fx:id="checkAnadirColeccion" mnemonicParsing="false" text="Añadir a la coleccion">
+                  <CheckBox fx:id="checkAnadirColeccion" mnemonicParsing="false" onAction="#anadirColeccion" text="Añadir a la coleccion">
                      <font>
                         <Font name="Noto Mono" size="12.0" />
                      </font></CheckBox>
-                  <CheckBox fx:id="checkLeido" mnemonicParsing="false" text="Se ha leido">
+                  <CheckBox fx:id="checkLeido" mnemonicParsing="false" onAction="#anadirLeido" text="Se ha leido">
                      <font>
                         <Font name="Noto Mono" size="12.0" />
                      </font></CheckBox>
-                  <CheckBox fx:id="checkComprado" mnemonicParsing="false" text="Comprado">
-                     <font>
-                        <Font name="Noto Mono" size="12.0" />
-                     </font></CheckBox>
-                  <CheckBox mnemonicParsing="false" text="CheckBox">
-                     <font>
-                        <Font name="Noto Mono" size="12.0" />
-                     </font></CheckBox>
-                  <CheckBox mnemonicParsing="false" text="CheckBox">
+                  <CheckBox fx:id="checkComprado" mnemonicParsing="false" onAction="#anadirComprado" text="Comprado">
                      <font>
                         <Font name="Noto Mono" size="12.0" />
                      </font></CheckBox>
                </children>
             </FlowPane>
-            <Label text="Comentarios" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label fx:id="tituloComentario" text="Comentarios" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Noto Mono" size="12.0" />
                </font></Label>
-            <Label text="Notas" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Label fx:id="tituloNotas" text="Notas" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font name="Noto Mono" size="12.0" />
                </font></Label>
             <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <Button fx:id="btnComentariosAnterior" mnemonicParsing="false" onAction="#anteriorComentario" text="Anterior" />
                   <Label text="           " />
-                  <Button fx:id="btnSiguienteComentarios" mnemonicParsing="false" onAction="#siguienteComentario" text="Siguente" />
                </children>
             </FlowPane>
             <FlowPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
             <FlowPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
                <children>
-                  <Button fx:id="btnGuardar" mnemonicParsing="false" text="Guardar" />
+                  <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardar" text="Guardar" />
                </children>
             </FlowPane>
-            <Label fx:id="txtNotas" prefHeight="38.0" prefWidth="195.0" text="  / 10" GridPane.columnIndex="3" GridPane.rowIndex="2">
-               <font>
-                  <Font name="Noto Mono" size="12.0" />
-               </font>
-            </Label>
+            <TextField fx:id="txtNota" GridPane.columnIndex="3" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </center>
@@ -145,27 +144,20 @@
       <GridPane prefHeight="89.0" prefWidth="1040.0" style="-fx-background-color: #22577A; -fx-border-color: black;">
         <columnConstraints>
           <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="329.8000122070313" minWidth="10.0" prefWidth="120.00000610351563" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="494.600015258789" minWidth="10.0" prefWidth="207.9999938964844" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="523.8000122070312" minWidth="10.0" prefWidth="341.39997558593757" />
-            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="385.39996337890625" minWidth="10.0" prefWidth="123.00002441406252" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="494.600015258789" minWidth="10.0" prefWidth="124.80001220703124" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="554.9999633789062" minWidth="10.0" prefWidth="544.5999999999999" />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="385.39996337890625" minWidth="0.0" prefWidth="0.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="249.20000000000005" minWidth="10.0" prefWidth="249.20000000000005" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ventanaUsuario" prefHeight="72.0" prefWidth="75.0" style="-fx-background-color: #C7F9CC; -fx-background-radius: 15px;" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ventanaUsuario" prefHeight="70.0" prefWidth="78.0" style="-fx-background-color: #22577A; -fx-background-radius: 15px;" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
                <children>
-                  <Label fx:id="labelUsuario" alignment="BOTTOM_CENTER" layoutX="1.0" layoutY="9.0" prefHeight="42.0" prefWidth="73.0" style="-fx-font-family: Cambria;" text="usuario" textAlignment="CENTER">
-                     <font>
-                        <Font name="Noto Mono" size="14.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor></Label>
                   <Pane layoutX="83.0" layoutY="-3.0" prefHeight="73.0" prefWidth="70.0" style="-fx-background-color: #C7F9CC; -fx-background-radius: 15px;">
                      <children>
                         <ImageView fx:id="btnLogOff" fitHeight="63.0" fitWidth="60.0" layoutX="5.0" layoutY="5.0" onMouseClicked="#cerrarSesion" pickOnBounds="true" preserveRatio="true">
@@ -188,7 +180,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Label fx:id="txtTitulo" prefHeight="26.0" prefWidth="326.0" text="Titulo" textFill="WHITE" GridPane.columnIndex="2">
+            <Label fx:id="txtTitulo" prefHeight="87.0" prefWidth="536.0" text="Titulo" textFill="WHITE" GridPane.columnIndex="2">
                <font>
                   <Font name="Noto Mono" size="20.0" />
                </font>

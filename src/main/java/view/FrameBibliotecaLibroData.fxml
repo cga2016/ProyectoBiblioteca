@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="724.0" prefWidth="1040.0" style="-fx-background-color: #C7F9CC;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FrameLibroController">
+<BorderPane prefHeight="724.0" prefWidth="1040.0" style="-fx-background-color: #C7F9CC;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FrameLibroBibliotecaController">
    <left>
       <Pane prefHeight="584.0" prefWidth="117.0" style="-fx-background-color: #22577A;" BorderPane.alignment="CENTER" />
    </left>
@@ -127,7 +127,11 @@
                </font></Label>
             <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
+                  <Button fx:id="btnAnterior" mnemonicParsing="false" onAction="#comentarioAnterior" text="Anterior" />
+                  <Label text="   " />
+                  <CheckBox fx:id="checkComentarios" mnemonicParsing="false" onAction="#cambiarModo" text="Visualizat comentarios" />
                   <Label text="           " />
+                  <Button fx:id="btnSiguiente" mnemonicParsing="false" onAction="#comentarioSiguiente" text="Siguiente" />
                </children>
             </FlowPane>
             <FlowPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />

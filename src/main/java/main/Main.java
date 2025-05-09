@@ -1,7 +1,5 @@
  package main;
  
-
-
 import java.util.ArrayList;
 
 import Api.ApiMetodos;
@@ -48,7 +46,7 @@ public class Main extends Application {
 		try {
 			ListaUsuarios.setUsuariosRegistrados(DaoUsuarios.loadUsers());
 			Usuario usuario = new Usuario("ej", "ej", "terror", "1234", "ej", "ej");
-			usuario.setId(0);
+			usuario.setId(1);
 			ListaUsuarios.addUsuario(usuario);
 			ArrayList<Libro> lista = ApiMetodos.searchLibros("Terry", STYLESHEET_MODENA, "intitles");
 			
@@ -56,7 +54,5 @@ public class Main extends Application {
 			e.printStackTrace();
 		};
 		launch(args);
-
 	}
-
 }

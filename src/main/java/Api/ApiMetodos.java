@@ -7,8 +7,6 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import com.google.gson.JsonArray;
@@ -18,33 +16,23 @@ import com.google.gson.JsonParser;
 
 import models.Libro;
 
-/**
- * cambiar lo de url que esta deprecated
- */
 public class ApiMetodos {
 
     private static final String API_URL = "https://www.googleapis.com/books/v1/volumes?q=";
     private static final String API_KEY = "AIzaSyCYR3bBaBBWHk-GqWY_hR2R-IqY6CUPA6Q";
 
-    /**
-     * metodo que se encarga de las busquedas en funcion de parametros
-     * @param busqueda
-     * @param filtro1
-     * @param filtro2
-     * @return
-     * @throws URISyntaxException 
-     */
     public static ArrayList<Libro> searchLibros(String busqueda, String filtro1, String filtro2) throws URISyntaxException {
         ArrayList<Libro> libros = new ArrayList<>();
 
         try {
+            busqueda = busqueda.replace(" ", "+");
+
             String urlString = API_URL + filtro2 + ":" + busqueda + "&maxResults=36&key=" + API_KEY;
             URI uri = new URI(urlString);
             URL url = uri.toURL();
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
-            
-            
+
             System.out.println(urlString);
 
             BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -94,9 +82,21 @@ public class ApiMetodos {
                         imagenGrande = imageLinks.has("thumbnail") ? imageLinks.get("thumbnail").getAsString() : "";
                     }
 
+                    String descripcion = volumeInfo.has("description") ? volumeInfo.get("description").getAsString() : "";
+
+                    ArrayList<String> generos = new ArrayList<>();
+                    if (volumeInfo.has("categories")) {
+                        JsonArray categorias = volumeInfo.getAsJsonArray("categories");
+                        for (JsonElement cat : categorias) {
+                            generos.add(cat.getAsString());
+                        }
+                    }
+
                     Libro libro = new Libro(0, titulo, link, autores, fechaPublicacion, isbn);
                     libro.setImagenPeque(imagenPeque);
                     libro.setImageGrande(imagenGrande);
+                    libro.setDescripcion(descripcion);
+                    libro.setGeneros(generos);
 
                     libros.add(libro);
                 }

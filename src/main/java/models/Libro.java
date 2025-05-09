@@ -1,6 +1,9 @@
 package models;
 
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Libro {
 	private int id;
@@ -13,9 +16,28 @@ public class Libro {
 	private String imageGrande;
 	private boolean prestado;
 	private int idUsuarioPrestamo;
-	private Date fechaPrestamo;
+	private String fechaPrestamo;
 	private boolean estadoPrestamo;
+	private String descripcion;
+	private ArrayList<String> generos = new ArrayList<>();
+	private ArrayList<String> Comentarios = new ArrayList<>();
+	private ArrayList<String> notas = new ArrayList<>();
 	
+	private Biblioteca ticket = new Biblioteca();
+	
+	public Libro(ResultSet rs) throws SQLException {
+	    this.iSBN = rs.getString("iSBN");
+	    this.nombre = rs.getString("nombre");
+	    this.linkPropio = rs.getString("linkPropio");
+	    this.autor = rs.getString("autor");
+	    this.fechaPublicacion = rs.getString("fechaPublicacion");
+	    this.imagenPeque = rs.getString("imagenPeque");
+	    this.imageGrande = rs.getString("imagenGrande");
+	    this.prestado = rs.getBoolean("prestado");
+	    this.idUsuarioPrestamo = rs.getInt("idUsuarioPrestamo");
+	    this.fechaPrestamo = rs.getString("fechaPrestamo");
+	    this.estadoPrestamo = rs.getBoolean("estadoPrestamo");
+	}
 	
 	
 	public Libro(int id, String nombre, String linkPropio, String autor, String fechaPublicacion, String iSBN) {
@@ -75,13 +97,71 @@ public class Libro {
 	public void setImageGrande(String imageGrande) {
 		this.imageGrande = imageGrande;
 	}
+	
+	public String getDescripcion() {
+	    return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+	    this.descripcion = descripcion;
+	}
+
+	public ArrayList<String> getGeneros() {
+	    return generos;
+	}
+
+	public void setGeneros(ArrayList<String> generos) {
+	    this.generos = generos;
+	}
+
 	@Override
 	public String toString() {
-		return "Libro [id=" + id + ", nombre=" + nombre + ", linkPropio=" + linkPropio + ", autor=" + autor
-				+ ", fechaPublicacion=" + fechaPublicacion + ", iSBN=" + iSBN + ", imagenPeque=" + imagenPeque
-				+ ", imageGrande=" + imageGrande + ", prestado=" + prestado + ", idUsuarioPrestamo=" + idUsuarioPrestamo
-				+ ", fechaPrestamo=" + fechaPrestamo + ", estadoPrestamo=" + estadoPrestamo + "]";
+	    return "Libro [id=" + id + ", nombre=" + nombre + ", autor=" + autor +
+	           ", fechaPublicacion=" + fechaPublicacion + ", descripcion=" + descripcion +
+	           ", generos=" + generos + ", iSBN=" + iSBN + "]";
 	}
-	
+	public Biblioteca getTicket() {
+		return ticket;
+	}
+	public void setTicket(Biblioteca ticket) {
+		this.ticket = ticket;
+	}
+	public boolean isPrestado() {
+		return prestado;
+	}
+	public void setPrestado(boolean prestado) {
+		this.prestado = prestado;
+	}
+	public int getIdUsuarioPrestamo() {
+		return idUsuarioPrestamo;
+	}
+	public void setIdUsuarioPrestamo(int idUsuarioPrestamo) {
+		this.idUsuarioPrestamo = idUsuarioPrestamo;
+	}
+	public String getFechaPrestamo() {
+		return fechaPrestamo;
+	}
+	public void setFechaPrestamo(String fechaPrestamo) {
+		this.fechaPrestamo = fechaPrestamo;
+	}
+	public boolean isEstadoPrestamo() {
+		return estadoPrestamo;
+	}
+	public void setEstadoPrestamo(boolean estadoPrestamo) {
+		this.estadoPrestamo = estadoPrestamo;
+	}
+	public ArrayList<String> getComentarios() {
+		return Comentarios;
+	}
+	public void setComentarios(ArrayList<String> comentarios) {
+		Comentarios = comentarios;
+	}
+	public ArrayList<String> getNotas() {
+		return notas;
+	}
+	public void setNotas(ArrayList<String> notas) {
+		this.notas = notas;
+	}
+
 	
 }

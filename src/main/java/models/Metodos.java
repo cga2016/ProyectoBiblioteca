@@ -1,6 +1,8 @@
 package models;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +16,15 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Metodos {
+	private static Libro libroSeleccionado;
 
+public static void setLibroSeleccionado(Libro libro) {
+    libroSeleccionado = libro;
+}
+
+public static Libro getLibroSeleccionado() {
+    return libroSeleccionado;
+}
 	
 	public static void cambiarEscena(Object event, String fxmlFile, String nombreVentana) {
 	    try {

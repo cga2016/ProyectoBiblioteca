@@ -10,6 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -17,7 +18,33 @@
 
 <BorderPane prefHeight="724.0" prefWidth="1040.0" style="-fx-background-color: #C7F9CC;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FrameHomeController">
    <left>
-      <Pane prefHeight="584.0" prefWidth="117.0" style="-fx-background-color: #22577A;" BorderPane.alignment="CENTER" />
+      <Pane prefHeight="584.0" prefWidth="117.0" style="-fx-background-color: #22577A;" BorderPane.alignment="CENTER">
+         <children>
+            <FlowPane orientation="VERTICAL" prefHeight="604.0" prefWidth="114.0">
+               <children>
+                  <Label />
+                  <Label text="     " />
+                  <Label text="     " />
+                  <Label text="     " />
+                  <Label fx:id="btnBiblioteca" onMouseClicked="#irABiblioteca" text="Biblioteca " textFill="WHITE">
+                     <font>
+                        <Font name="Noto Mono" size="12.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Label text="     " />
+                  <Label text="Añadir Libro" textFill="WHITE">
+                     <font>
+                        <Font name="Noto Mono" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label text="     " />
+                  <Label text="     " />
+               </children>
+            </FlowPane>
+         </children></Pane>
    </left>
    <bottom>
       <Pane prefHeight="40.0" prefWidth="1006.0" style="-fx-background-color: #22577A;" BorderPane.alignment="CENTER">
@@ -55,18 +82,54 @@
             <RowConstraints minHeight="10.0" prefHeight="49.0" valignment="TOP" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fx:id="imageView1" fitHeight="123.0" fitWidth="88.0" onMouseClicked="#clickDetails" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
-            <ImageView fx:id="imageView2" fitHeight="123.0" fitWidth="88.0" onMouseClicked="#clickDetails" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ImageView fx:id="imageView3" fitHeight="123.0" fitWidth="88.0" onMouseClicked="#clickDetails" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <ImageView fx:id="imageView4" fitHeight="123.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <ImageView fx:id="imageView5" fitHeight="123.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3" />
-            <ImageView fx:id="imageView6" fitHeight="123.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ImageView fx:id="imageView7" fitHeight="123.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <ImageView fx:id="imageView8" fitHeight="123.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <ImageView fx:id="imageView9" fitHeight="123.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5" />
-            <ImageView fx:id="imageView10" fitHeight="123.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <ImageView fx:id="imageView11" fitHeight="123.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <ImageView fx:id="imageView12" fitHeight="123.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <ImageView fx:id="imageView1" fitHeight="123.0" fitWidth="88.0" onMouseClicked="#clickDetails" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="imageView2" fitHeight="123.0" fitWidth="88.0" onMouseClicked="#clickDetails" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="imageView3" fitHeight="123.0" fitWidth="88.0" onMouseClicked="#clickDetails" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="imageView4" fitHeight="123.0" fitWidth="88.0" onMouseClicked="#clickDetails" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="imageView5" fitHeight="123.0" fitWidth="88.0" onMouseClicked="#clickDetails" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="imageView6" fitHeight="123.0" fitWidth="88.0" onMouseClicked="#clickDetails" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="imageView7" fitHeight="123.0" fitWidth="88.0" onMouseClicked="#clickDetails" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="imageView8" fitHeight="123.0" fitWidth="88.0" onMouseClicked="#clickDetails" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="imageView9" fitHeight="123.0" fitWidth="88.0" onMouseClicked="#clickDetails" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="5">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="imageView10" fitHeight="123.0" fitWidth="88.0" onMouseClicked="#clickDetails" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="imageView11" fitHeight="123.0" fitWidth="88.0" onMouseClicked="#clickDetails" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
+            <ImageView fx:id="imageView12" fitHeight="123.0" fitWidth="88.0" onMouseClicked="#clickDetails" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="5">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
             <Pane prefHeight="43.0" prefWidth="202.0" style="-fx-background-color: #2D7D90;">
                <children>
                   <ComboBox fx:id="chboxFiltro" layoutX="14.0" layoutY="8.0" onInputMethodTextChanged="#cambio1" prefHeight="25.0" prefWidth="190.0">
@@ -81,7 +144,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor></ComboBox>
                </children></Pane>
-            <Pane onMouseClicked="#clickPuzles" prefHeight="57.0" prefWidth="469.0" style="-fx-background-color: #2D7D90;" GridPane.columnIndex="2">
+            <Pane prefHeight="57.0" prefWidth="469.0" style="-fx-background-color: #2D7D90;" GridPane.columnIndex="2">
                <children>
                   <TextField fx:id="searchField" alignment="TOP_LEFT" layoutY="4.0" onKeyPressed="#buscar" prefHeight="34.0" prefWidth="227.0" promptText="Buscar" style="-fx-border-radius: 200px; -fx-border-color: black; -fx-background-color: #2D7D90;">
                      <font>

@@ -11,6 +11,11 @@ import java.util.ArrayList;
 
 public class LibroDAO {
 
+	/**
+	 * metodo que obtiene desde la bd  todos los libros que tengan true en que estan en la biblioteca
+	 * y coincida el id de usuario. los libros se construyen con los datos directamente de el result set
+	 * @return
+	 */
     public static ArrayList<Libro> obtenerLibrosDeBibliotecaDelUsuario() {
         ArrayList<Libro> libros = new ArrayList<>();
         String sql = "SELECT l.* FROM Libro l " +
@@ -24,7 +29,7 @@ public class LibroDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                libros.add(new Libro(rs)); // Constructor que construya desde ResultSet
+                libros.add(new Libro(rs)); 
             }
 
         } catch (Exception e) {

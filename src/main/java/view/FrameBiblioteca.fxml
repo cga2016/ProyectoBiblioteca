@@ -55,7 +55,16 @@
                            </cursor>
                         </Label>
                         <Label text="     " />
-                        <Label fx:id="btnPrestados" onMouseClicked="#filtrarPrestado" text="Prestados" textFill="WHITE">
+                        <Label fx:id="btnHanPrestado" onMouseClicked="#filtrarPrestado" text="Me han prestado" textFill="WHITE">
+                           <font>
+                              <Font name="Noto Mono" size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label text="     " />
+                        <Label fx:id="btnHePrestado" onMouseClicked="#filtrarPrestado" text="He prestado" textFill="WHITE">
                            <font>
                               <Font name="Noto Mono" size="12.0" />
                            </font>

@@ -1,8 +1,242 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
+   <children>
+      <BorderPane prefHeight="734.0" prefWidth="1050.0" style="-fx-background-color: #C7F9CC;">
+         <left>
+            <Pane prefHeight="584.0" prefWidth="117.0" style="-fx-background-color: #22577A;" BorderPane.alignment="CENTER" />
+         </left>
+         <bottom>
+            <Pane prefHeight="40.0" prefWidth="1006.0" style="-fx-background-color: #22577A;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="btnRegresar" onMouseClicked="#regresar" prefHeight="30.0" prefWidth="100.0" text="Regresar" textFill="WHITE">
+                     <font>
+                        <Font name="Noto Mono" size="18.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <FlowPane layoutX="895.0" layoutY="-19.0" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+         </bottom>
+         <center>
+            <GridPane hgap="5.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="574.0" prefWidth="881.0" style="-fx-background-color: #C7F9CC;" vgap="5.0" BorderPane.alignment="TOP_LEFT">
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="302.3999877929688" minWidth="10.0" prefWidth="214.3999755859375" />
+                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="455.6" minWidth="10.0" prefWidth="440.8000244140625" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="278.6000366210937" minWidth="0.0" prefWidth="0.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="359.4" minHeight="10.0" prefHeight="359.4" valignment="TOP" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="84.00003051757812" minHeight="0.0" prefHeight="8.000012207031261" valignment="TOP" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="180.2000122070313" minHeight="10.0" prefHeight="132.7999694824219" valignment="TOP" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="45.80001220703127" minHeight="10.0" prefHeight="11.399987792968773" valignment="TOP" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <opaqueInsets>
+                  <Insets top="20.0" />
+               </opaqueInsets>
+               <BorderPane.margin>
+                  <Insets top="10.0" />
+               </BorderPane.margin>
+               <children>
+                  <FlowPane orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0" rowValignment="TOP" GridPane.columnIndex="1">
+                     <children>
+                        <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="61.0" prefWidth="446.0">
+                           <children>
+                              <Label layoutX="-3.0" layoutY="-2.0" prefHeight="64.0" prefWidth="79.0" text="Titulo:" />
+                              <TextField fx:id="txtTitulo" layoutX="102.0" layoutY="18.0" prefHeight="25.0" prefWidth="331.0" />
+                           </children>
+                        </Pane>
+                        <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="61.0" prefWidth="446.0">
+                           <children>
+                              <Label layoutX="-3.0" layoutY="-2.0" prefHeight="64.0" prefWidth="79.0" text="Autor:" />
+                              <TextField fx:id="txtAutor" layoutX="102.0" layoutY="18.0" prefHeight="25.0" prefWidth="331.0" />
+                           </children>
+                        </Pane>
+                        <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="61.0" prefWidth="446.0">
+                           <children>
+                              <Label layoutX="-3.0" layoutY="-2.0" prefHeight="64.0" prefWidth="79.0" text="Generos:" />
+                              <TextField fx:id="txtGeneros" layoutX="102.0" layoutY="18.0" prefHeight="25.0" prefWidth="331.0" />
+                           </children>
+                        </Pane>
+                        <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="174.0" prefWidth="446.0">
+                           <children>
+                              <Label layoutX="-3.0" layoutY="-2.0" prefHeight="64.0" prefWidth="79.0" text="Descriptción:" />
+                              <TextArea fx:id="txtDescripcion" layoutX="98.0" layoutY="1.0" prefHeight="172.0" prefWidth="348.0" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </FlowPane>
+                  <FlowPane orientation="VERTICAL" prefHeight="266.0" prefWidth="230.0" rowValignment="TOP" GridPane.columnIndex="3">
+                     <children>
+                        <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="62.0" prefWidth="187.0">
+                           <children>
+                              <Label layoutX="-3.0" layoutY="-2.0" prefHeight="64.0" prefWidth="35.0" text="ISBN:" />
+                              <TextField fx:id="txtISBN" layoutX="33.0" layoutY="18.0" prefHeight="25.0" prefWidth="165.0" />
+                           </children>
+                        </Pane>
+                        <Label fx:id="txtFechaDePublicación" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="45.0" prefWidth="198.0" text="Fecha de publcación:">
+                           <font>
+                              <Font name="Noto Mono" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtFecha" prefHeight="25.0" prefWidth="165.0" />
+                     </children>
+                  </FlowPane>
+                  <Label text="Gestion fe la biblio" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Noto Mono" size="12.0" />
+                     </font>
+                  </Label>
+                  <FlowPane prefHeight="138.0" prefWidth="446.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <FlowPane orientation="VERTICAL" prefHeight="152.0" prefWidth="445.0">
+                           <children>
+                              <ScrollPane fx:id="scrollPane" prefHeight="150.0" prefWidth="448.0">
+                                 <content>
+                                    <TextArea fx:id="txtComentario" prefHeight="148.0" prefWidth="430.0" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </FlowPane>
+                     </children>
+                  </FlowPane>
+                  <FlowPane orientation="VERTICAL" prefHeight="122.0" prefWidth="206.0" GridPane.rowIndex="2">
+                     <children>
+                        <CheckBox fx:id="checkAnadirColeccion" mnemonicParsing="false" onAction="#anadirColeccion" text="Añadir a la coleccion">
+                           <font>
+                              <Font name="Noto Mono" size="12.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="checkLeido" mnemonicParsing="false" onAction="#anadirLeido" text="Se ha leido">
+                           <font>
+                              <Font name="Noto Mono" size="12.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="checkComprado" mnemonicParsing="false" onAction="#anadirComprado" text="Comprado">
+                           <font>
+                              <Font name="Noto Mono" size="12.0" />
+                           </font>
+                        </CheckBox>
+                     </children>
+                  </FlowPane>
+                  <Label fx:id="tituloComentario" text="Comentarios" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Noto Mono" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="tituloNotas" text="Notas" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Noto Mono" size="12.0" />
+                     </font>
+                  </Label>
+                  <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <Label text="           " />
+                     </children>
+                  </FlowPane>
+                  <FlowPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+                     <children>
+                        <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardar" text="Guardar" />
+                     </children>
+                  </FlowPane>
+                  <TextField fx:id="txtNota" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="btnAnadirImagen" layoutX="64.0" layoutY="310.0" mnemonicParsing="false" onAction="#AnadirImagen" text="Añadir Imagen" />
+                        <ImageView fx:id="imageLibro" fitHeight="264.0" fitWidth="206.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </Pane>
+               </children>
+            </GridPane>
+         </center>
+         <top>
+            <GridPane prefHeight="89.0" prefWidth="1040.0" style="-fx-background-color: #22577A; -fx-border-color: black;">
+               <columnConstraints>
+                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="329.8000122070313" minWidth="10.0" prefWidth="120.00000610351563" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="494.600015258789" minWidth="10.0" prefWidth="124.80001220703124" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="554.9999633789062" minWidth="10.0" prefWidth="544.5999999999999" />
+                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="385.39996337890625" minWidth="0.0" prefWidth="0.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="249.20000000000005" minWidth="10.0" prefWidth="249.20000000000005" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+               </rowConstraints>
+               <children>
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ventanaUsuario" prefHeight="70.0" prefWidth="78.0" style="-fx-background-color: #22577A; -fx-background-radius: 15px;" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <children>
+                        <Pane layoutX="83.0" layoutY="-3.0" prefHeight="73.0" prefWidth="70.0" style="-fx-background-color: #C7F9CC; -fx-background-radius: 15px;">
+                           <children>
+                              <ImageView fx:id="btnLogOff" fitHeight="63.0" fitWidth="60.0" layoutX="5.0" layoutY="5.0" onMouseClicked="#cerrarSesion" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <image>
+                                    <Image url="@../images/log.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+                  <ImageView fx:id="btnHome" fitHeight="76.0" fitWidth="116.0" onMouseClicked="#volverHome">
+                     <image>
+                        <Image url="@../images/logoBiblio.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Label fx:id="txtTitulo" prefHeight="87.0" prefWidth="536.0" text="Añadir Libro" textFill="WHITE" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="Noto Mono" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="40.0" prefWidth="132.0" textFill="WHITE" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Noto Mono" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </top>
+         <right>
+            <GridPane prefHeight="657.0" prefWidth="41.0" style="-fx-background-color: #1A5989;" BorderPane.alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="41.0" minWidth="0.0" prefWidth="38.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </right>
+      </BorderPane>
+   </children>
 </AnchorPane>
-

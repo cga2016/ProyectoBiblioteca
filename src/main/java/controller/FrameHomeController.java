@@ -22,6 +22,9 @@ import models.UsuarioIniciado;
 public class FrameHomeController {
 	
     @FXML
+    private Label btnAddLibro;
+	
+    @FXML
     private Button btnAdelante;
 
     @FXML
@@ -128,6 +131,13 @@ public class FrameHomeController {
     private int paginaActual = 1;
     private final int librosPorPagina = 12;
     private final int totalPaginas = 3;
+    
+    
+
+    @FXML
+    void irAddLibro(MouseEvent event) {
+    	Metodos.cambiarEscena(event, "/view/FrameAddLibro.fxml", "Add libro");
+    }
     
     @FXML
     void adelante(ActionEvent event) {
@@ -358,7 +368,11 @@ public class FrameHomeController {
             ArrayList<Libro> librosEncontrados = ApiMetodos.searchLibros(textoBusqueda, "", tipoBusqueda);
             librosTotales = ApiMetodos.searchLibros(textoBusqueda, "", tipoBusqueda);
             paginaActual = 1;
+            if (!librosTotales.isEmpty()) {
             actualizarPaginacion();
+            } else {
+            	Metodos.mostrarMensajeError("Error: No se encontro ningun libro con esas caracteristicas de busqueda");
+            }
         } else {
         	Metodos.mostrarMensajeError("Error: se dejo el campo de busqueda vacio");
         }

@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
@@ -24,6 +25,7 @@ import models.Resenia;
 import models.UsuarioIniciado;
 
 public class FrameLibroController {
+
 
     @FXML
     private Button btnGuardar;
@@ -50,7 +52,13 @@ public class FrameLibroController {
     private ImageView imageLibro;
 
     @FXML
+    private ScrollPane scrollPane;
+
+    @FXML
     private Label tituloComentario;
+
+    @FXML
+    private Label tituloFecha;
 
     @FXML
     private Label tituloNotas;
@@ -60,6 +68,9 @@ public class FrameLibroController {
 
     @FXML
     private TextArea txtComentario;
+
+    @FXML
+    private DatePicker txtDate;
 
     @FXML
     private Label txtDescriptcion;
@@ -78,9 +89,6 @@ public class FrameLibroController {
 
     @FXML
     private Label txtTitulo;
-    
-    @FXML
-    private ScrollPane scrollPane;
 
     @FXML
     void anadirColeccion(ActionEvent event) {
@@ -229,6 +237,8 @@ public class FrameLibroController {
         tituloComentario.setVisible(visible);
         tituloNotas.setVisible(visible);
         scrollPane.setVisible(visible);
+        tituloFecha.setVisible(visible);
+        txtDate.setVisible(visible);
     }
     
     private boolean esLibroExistente(String isbn) {

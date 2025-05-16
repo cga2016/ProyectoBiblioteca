@@ -19,28 +19,77 @@ import connection.Conexion;
 
 public class FrameLibroBibliotecaController {
 
-    @FXML private Button btnAnterior;
-    @FXML private Button btnGuardar;
-    @FXML private ImageView btnHome;
-    @FXML private ImageView btnLogOff;
-    @FXML private Label btnRegresar;
-    @FXML private Button btnSiguiente;
-    @FXML private CheckBox checkAnadirColeccion;
-    @FXML private CheckBox checkComentarios;
-    @FXML private CheckBox checkComprado;
-    @FXML private CheckBox checkLeido;
-    @FXML private ImageView imageLibro;
-    @FXML private ScrollPane scrollPane;
-    @FXML private Label tituloComentario;
-    @FXML private Label tituloNotas;
-    @FXML private Label txtAutor;
-    @FXML private TextArea txtComentario;
-    @FXML private Label txtDescriptcion;
-    @FXML private Label txtFechaDePublicación;
-    @FXML private Label txtGeneros;
-    @FXML private Label txtISBN;
-    @FXML private TextField txtNota;
-    @FXML private Label txtTitulo;
+    @FXML
+    private Button btnAnterior;
+
+    @FXML
+    private Button btnGuardar;
+
+    @FXML
+    private ImageView btnHome;
+
+    @FXML
+    private ImageView btnLogOff;
+
+    @FXML
+    private Label btnRegresar;
+
+    @FXML
+    private Button btnSiguiente;
+
+    @FXML
+    private CheckBox checkAnadirColeccion;
+
+    @FXML
+    private CheckBox checkComentarios;
+
+    @FXML
+    private CheckBox checkComprado;
+
+    @FXML
+    private CheckBox checkLeido;
+
+    @FXML
+    private ImageView imageLibro;
+
+    @FXML
+    private ScrollPane scrollPane;
+
+    @FXML
+    private Label tituloComentario;
+
+    @FXML
+    private Label tituloFecha;
+
+    @FXML
+    private Label tituloNotas;
+
+    @FXML
+    private Label txtAutor;
+
+    @FXML
+    private TextArea txtComentario;
+
+    @FXML
+    private DatePicker txtDate;
+
+    @FXML
+    private Label txtDescriptcion;
+
+    @FXML
+    private Label txtFechaDePublicación;
+
+    @FXML
+    private Label txtGeneros;
+
+    @FXML
+    private Label txtISBN;
+
+    @FXML
+    private TextField txtNota;
+
+    @FXML
+    private Label txtTitulo;
 
     private List<Resenia> resenias = new ArrayList<>();
     private int indiceActual = 0;
@@ -93,6 +142,8 @@ public class FrameLibroBibliotecaController {
             checkAnadirColeccion.setVisible(false);
             checkComprado.setVisible(false);
             checkLeido.setVisible(false);
+            txtDate.setVisible(false);
+            tituloFecha.setVisible(false);
             cargarResenias();
             mostrarResenia(0);
         } else if (modoLeido) {
@@ -111,6 +162,9 @@ public class FrameLibroBibliotecaController {
             checkAnadirColeccion.setVisible(true);
             checkComprado.setVisible(true);
             checkLeido.setVisible(true);
+            txtDate.setVisible(true);
+            tituloFecha.setVisible(true);
+            
         } else {
             scrollPane.setVisible(false);
             tituloComentario.setVisible(false);
@@ -123,6 +177,8 @@ public class FrameLibroBibliotecaController {
             checkAnadirColeccion.setVisible(true);
             checkComprado.setVisible(true);
             checkLeido.setVisible(true);
+            txtDate.setVisible(false);
+            tituloFecha.setVisible(false);
         }
     }
 

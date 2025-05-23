@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import connection.Conexion;
 import models.Metodos;
 import models.Usuario;
-
+/**
+ * Clase que gestiona los datos de usurios con la bd
+ */
 public class DaoUsuarios {
 	public static void addUser(Usuario user) {
 	try {
@@ -48,24 +50,22 @@ public class DaoUsuarios {
 	    Connection connection = Conexion.conectar();
 	    ArrayList<Usuario> usuarios = new ArrayList<>();
 
-
-	    String selectQuery = " Select id,  Nombre, Apellidos,generoFavorito,contrasena, Correo, nickname FROM Usuario";
+	    String selectQuery = "SELECT id, nombre, apellidos, generoFavorito, contrasena, correo, nickname FROM Usuario";
 
 	    try (PreparedStatement selectStatement = connection.prepareStatement(selectQuery);
 	         ResultSet resultSet = selectStatement.executeQuery()) {
 
 	        while (resultSet.next()) {
-
-	            Usuario user = new Usuario(selectQuery, selectQuery, selectQuery, selectQuery, selectQuery, selectQuery);
-	            
-	            user.setNombre(resultSet.getString("Nombre"));
-	            user.setApellidos(resultSet.getString("Apellidos"));
-	            user.setGeneroFavorito(resultSet.getString("generoFavorito"));
-	            user.setNickname(resultSet.getString("contrasena"));
-	            user.setCorreo(resultSet.getString("correo"));
-	            user.setNickname(resultSet.getString("nickname"));
-	            user.setId(resultSet.getInt("id"));
-
+	   
+	            Usuario user = new Usuario(
+	                resultSet.getString("nombre"),
+	                resultSet.getString("apellidos"),
+	                resultSet.getString("generoFavorito"),
+	                resultSet.getString("contrasena"),
+	                resultSet.getString("correo"),
+	                resultSet.getString("nickname")
+	            );
+	            user.setId(resultSet.getInt("id")); 
 	            usuarios.add(user);
 	        }
 
@@ -75,5 +75,6 @@ public class DaoUsuarios {
 
 	    return usuarios; 
 	}
+
 
 }

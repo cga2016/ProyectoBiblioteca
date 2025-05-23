@@ -56,12 +56,14 @@ public class FrameLogginController {
     void iniciarSesion(ActionEvent event) {
     	if (ListaUsuarios.checkUsuarioEmail(txtGmail.getText())) {
     		Usuario user1 = ListaUsuarios.searchUsser(txtGmail.getText());
+    		user1.toString();
     		if(user1.getContrasena().equals(txtContrasena.getText())) {
     			UsuarioIniciado.setUsuario(ListaUsuarios.searchUsser(txtGmail.getText()));
 	    		Metodos.mostrarMensajeConfirmacion("Usuario encontrado");
 	    		Metodos.cambiarEscena(event, "/view/FrameHome.fxml", "Home");
     		} else {
     			Metodos.mostrarMensajeConfirmacion("Contrseña incorrecta");
+    			user1.toString();
     		}
     		
     	} else {

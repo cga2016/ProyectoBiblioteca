@@ -84,5 +84,54 @@ public class LibroDAO {
 
         return libros;
     }
+    
+    public static ArrayList<Libro> obtenerLibrosPrestadosPorMi(int idUsuario) {
+        ArrayList<Libro> libros = new ArrayList<>();
+        String sql = "SELECT l.* FROM Libro l " +
+                     "JOIN Biblioteca b ON l.iSBN = b.isbnLibro " +
+                     "WHERE b.idUsuario = ? AND b.prestado = true";
+
+        try (Connection conn = Conexion.conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, idUsuario);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                libros.add(new Libro(rs));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return libros;
+    }
+
+    public static ArrayList<Libro> obtenerLibrosQueMeHanPrestado(int idUsuario) {
+        ArrayList<Libro> libros = new ArrayList<>();
+        String sql = "SELECT l.* FROM Libro l " +
+                     "JOIN Biblioteca b ON l.iSBN = b.isbnLibro " +
+                     "WHERE b.idUsuario = ? AND b.meHanPrestado = true";
+
+        try (Connection conn = Conexion.conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, idUsuario);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                libros.add(new Libro(rs));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return libros;
+    }
+
+    
+    
 }
 

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #2D7D90;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FramePrestamo">
+   <left>
+      <AnchorPane prefHeight="330.0" prefWidth="66.0" BorderPane.alignment="CENTER" />
+   </left>
+   <top>
+      <FlowPane alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="85.0" fitWidth="381.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logoBiblio.png" />
+               </image>
+            </ImageView>
+         </children>
+      </FlowPane>
+   </top>
+   <right>
+      <AnchorPane prefHeight="330.0" prefWidth="61.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <AnchorPane prefHeight="54.0" prefWidth="696.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnPrestar" layoutX="23.0" layoutY="15.0" mnemonicParsing="false" onAction="#prestar" text="Prestar" />
+            <Button fx:id="btnDevolver" layoutX="82.0" layoutY="15.0" mnemonicParsing="false" onAction="#devolver" text="Devolver" />
+         </children></AnchorPane>
+   </bottom>
+   <center>
+      <FlowPane alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" orientation="VERTICAL" prefHeight="330.0" prefWidth="486.0" style="-fx-background-color: #38A3A5;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="50.0" prefWidth="563.0">
+               <children>
+                  <RadioButton fx:id="checkPrestamos" layoutX="24.0" layoutY="17.0" mnemonicParsing="false" onAction="#misPrestamos" text="Gestionar mis prestamos" />
+                  <RadioButton fx:id="checkMisPrestamos" layoutX="194.0" layoutY="17.0" mnemonicParsing="false" onAction="#misLibrosPrestados" text="Gestionar mis libros prestados" />
+               </children>
+            </Pane>
+            <Pane prefHeight="50.0" prefWidth="563.0">
+               <children>
+                  <ChoiceBox fx:id="checkLibros" layoutX="14.0" layoutY="13.0" prefWidth="150.0" />
+                  <TextField fx:id="txtUsuarios" layoutX="272.0" layoutY="13.0" promptText="Correo del usuario objetivo" />
+               </children>
+            </Pane>
+            <TableView fx:id="tablaDevoluciones" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="columnaTitulo" prefWidth="176.79996955394745" text="columnaTitulo" />
+                <TableColumn fx:id="columnaCorreo" prefWidth="256.00006103515625" text="columnaTitulo" />
+                  <TableColumn fx:id="columnaFecha" prefWidth="127.199951171875" text="columnaFecha" />
+              </columns>
+            </TableView>
+         </children>
+      </FlowPane>
+   </center>
+</BorderPane>

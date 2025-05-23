@@ -14,7 +14,9 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
+/**
+ * Metodos de utilidad general de la app como cambiar de escena o mensajes
+ */
 public class Metodos {
 	private static Libro libroSeleccionado;
 

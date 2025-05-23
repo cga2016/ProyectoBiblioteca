@@ -1,11 +1,15 @@
 package controller;
 
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 import Api.ApiMetodos;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -15,11 +19,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import models.Libro;
 import models.Metodos;
 import models.UsuarioIniciado;
 
 public class FrameHomeController {
+	
+    @FXML
+    private Label btnMenuPrestamo;
+    
+    
 	
     @FXML
     private Label btnAddLibro;
@@ -285,14 +295,7 @@ public class FrameHomeController {
 
     @FXML
     void buscar(KeyEvent event) {
-       /* String textoBusqueda = searchField.getText().trim();
 
-        if (!textoBusqueda.isEmpty()) {
-            ArrayList<Libro> librosEncontrados = ApiMetodos.searchLibros(textoBusqueda, "", "intitle");
-            mostrarLibros(librosEncontrados);
-        } else {
-            System.out.println("Campo de búsqueda vacío.");
-        }*/
     }
     
     @FXML
@@ -383,6 +386,25 @@ public class FrameHomeController {
     void irABiblioteca(MouseEvent event) {
     	Metodos.cambiarEscena(event, "/view/FrameBiblioteca.fxml", "Registro");
     }
+    
+    @FXML
+    void irAMenuPrestamo(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FramePrestamos.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Gestión de Préstamos");
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Metodos.mostrarMensajeError("No se pudo cargar la ventana de préstamos.");
+        }
+    }
+    
     
     
 }

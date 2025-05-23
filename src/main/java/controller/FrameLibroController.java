@@ -26,7 +26,6 @@ import models.UsuarioIniciado;
 
 public class FrameLibroController {
 
-
     @FXML
     private Button btnGuardar;
 
@@ -90,6 +89,7 @@ public class FrameLibroController {
     @FXML
     private Label txtTitulo;
 
+
     @FXML
     void anadirColeccion(ActionEvent event) {
         if (!checkAnadirColeccion.isSelected()) {
@@ -127,7 +127,6 @@ public class FrameLibroController {
             return;
         }
 
-
         int idUsuario = UsuarioIniciado.getUsuario().getId();
         Libro libro = Metodos.getLibroSeleccionado();
         if (libro == null || libro.getiSBN() == null) {
@@ -137,36 +136,53 @@ public class FrameLibroController {
 
         String isbn = libro.getiSBN();
 
- 
         if (!esLibroExistente(isbn)) {
-
             DaoBibliotecaResenia.guardarLibro(libro);
         }
-        if (leido) {
-            String comentario = txtComentario.getText();
-            String notaStr = txtNota.getText();
 
-            if (comentario == null || comentario.isEmpty() || notaStr == null || notaStr.isEmpty()) {
-                Metodos.mostrarMensajeConfirmacion("Debe completar comentario y nota para guardar como leído.");
+        // Validar campos si está marcado como leído
+        String comentario = null;
+        String notaStr = null;
+        double nota = 0.0;
+        var fecha = txtDate.getValue();
+
+        if (leido) {
+            comentario = txtComentario.getText();
+            notaStr = txtNota.getText();
+
+            if (comentario == null || comentario.isEmpty() ||
+                notaStr == null || notaStr.isEmpty() ||
+                fecha == null) {
+                Metodos.mostrarMensajeError("Debe completar comentario, nota y fecha para guardar como leído.");
                 return;
             }
 
             try {
-                double nota = Double.parseDouble(notaStr);
-
-                Resenia resenia = new Resenia();
-                resenia.setComentario(comentario);
-                resenia.setNota(nota);
-                resenia.setIsbnLibro(isbn);
-                resenia.setIdUsuario(idUsuario);
-                resenia.setFechaLeido(java.sql.Date.valueOf(java.time.LocalDate.now()));
-                DaoBibliotecaResenia.guardarResenia(resenia);
+                nota = Double.parseDouble(notaStr);
             } catch (NumberFormatException e) {
-                Metodos.mostrarMensajeConfirmacion("La nota debe ser un número válido.");
+                Metodos.mostrarMensajeError("La nota debe ser un número válido.");
                 return;
             }
         }
 
+        // Verificar si ya existe entrada en Biblioteca
+        if (existeEntradaBiblioteca(idUsuario, isbn)) {
+            Metodos.mostrarMensajeError("Este libro ya está en tu biblioteca.");
+            return;
+        }
+
+        // Guardar reseña si aplica
+        if (leido) {
+            Resenia resenia = new Resenia();
+            resenia.setComentario(comentario);
+            resenia.setNota(nota);
+            resenia.setIsbnLibro(isbn);
+            resenia.setIdUsuario(idUsuario);
+            resenia.setFechaLeido(java.sql.Date.valueOf(fecha));
+            DaoBibliotecaResenia.guardarResenia(resenia);
+        }
+
+        // Guardar entrada en la tabla Biblioteca
         Biblioteca biblioteca = new Biblioteca();
         biblioteca.setIdUsuario(idUsuario);
         biblioteca.setIsbnLibro(isbn);
@@ -174,9 +190,30 @@ public class FrameLibroController {
         biblioteca.setLeido(leido);
         biblioteca.setComprado(comprado);
         biblioteca.setPrestado(false);
+        biblioteca.setMeHanPrestado(false);
+        biblioteca.setFechaLeido(leido ? fecha : null); // Guardar fecha solo si está marcado como leído
 
         DaoBibliotecaResenia.guardarBiblioteca(biblioteca);
         Metodos.mostrarMensajeConfirmacion("Los datos se han guardado correctamente.");
+    }
+
+    private boolean existeEntradaBiblioteca(int idUsuario, String isbn) {
+        String sql = "SELECT COUNT(*) FROM Biblioteca WHERE idUsuario = ? AND isbnLibro = ?";
+        try (Connection conn = Conexion.conectar();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, idUsuario);
+            ps.setString(2, isbn);
+            var resultSet = ps.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt(1) > 0;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Metodos.mostrarMensajeError("Error al verificar si el libro ya está en tu biblioteca.");
+        }
+        return false;
     }
 
 
@@ -257,5 +294,21 @@ public class FrameLibroController {
             Metodos.mostrarMensajeError("Error al verificar si el libro existe.");
         }
         return false;
+    }
+    
+
+    @FXML
+    void comentarioAnterior(ActionEvent event) {
+
+    }
+
+    @FXML
+    void comentarioSiguiente(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void cambiarModo(ActionEvent event) {
+
     }
 }

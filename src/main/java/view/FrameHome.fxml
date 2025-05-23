@@ -44,6 +44,14 @@
                      </cursor>
                   </Label>
                   <Label text="     " />
+                  <Label fx:id="btnMenuPrestamo" onMouseClicked="#irAMenuPrestamo" prefHeight="0.0" prefWidth="87.0" text="Prestamos" textFill="WHITE">
+                     <font>
+                        <Font name="Noto Mono" size="12.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
                   <Label text="     " />
                </children>
             </FlowPane>

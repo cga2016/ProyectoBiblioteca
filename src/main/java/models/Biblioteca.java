@@ -1,5 +1,7 @@
 package models;
 
+import java.time.LocalDate;
+
 public class Biblioteca {
     private int idUsuario;
     private String isbnLibro;
@@ -7,18 +9,21 @@ public class Biblioteca {
     private boolean comprado;
     private boolean leido;
     private boolean prestado;
+    private boolean meHanPrestado;
+    private LocalDate fechaLeido;
 
     public Biblioteca() {
-
     }
 
-    public Biblioteca(int idUsuario, String isbnLibro, boolean enBiblioteca, boolean comprado, boolean leido, boolean prestado) {
+    public Biblioteca(int idUsuario, String isbnLibro, boolean enBiblioteca, boolean comprado, boolean leido, boolean prestado, boolean meHanPrestado, LocalDate fechaLeido) {
         this.idUsuario = idUsuario;
         this.isbnLibro = isbnLibro;
         this.enBiblioteca = enBiblioteca;
         this.comprado = comprado;
         this.leido = leido;
         this.prestado = prestado;
+        this.meHanPrestado = meHanPrestado;
+        this.fechaLeido = fechaLeido;
     }
 
     public int getIdUsuario() {
@@ -67,5 +72,21 @@ public class Biblioteca {
 
     public void setPrestado(boolean prestado) {
         this.prestado = prestado;
+    }
+
+    public boolean isMeHanPrestado() {
+        return meHanPrestado;
+    }
+
+    public void setMeHanPrestado(boolean meHanPrestado) {
+        this.meHanPrestado = meHanPrestado;
+    }
+
+    public LocalDate getFechaLeido() {
+        return fechaLeido;
+    }
+
+    public void setFechaLeido(LocalDate fechaLeido) {
+        this.fechaLeido = fechaLeido;
     }
 }
